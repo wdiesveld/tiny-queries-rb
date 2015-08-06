@@ -41,7 +41,8 @@ class TinyQueries
 		command = 
 			@connector + 
 			" \"" + term + "\"" + 
-			" \"" + JSON.generate( params.merge( @globals ) ).gsub(/\"/,"\\\"") + "\""
+			" \"" + JSON.generate( params ).gsub(/\"/,"\\\"") + "\"" +
+			" \"" + JSON.generate( @globals ).gsub(/\"/,"\\\"") + "\""
 		
 		# Execute the command and capture the output
 		json = `#{command}`
